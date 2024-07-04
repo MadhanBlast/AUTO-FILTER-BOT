@@ -32,7 +32,7 @@ async def cancel(bot,update):
 
 
 
-@Client.on_message(filters.private & filters.command("rename"))
+@Client.on_message(filters.private & (filters.document | filters.audio | filters.video))
 async def rename_start(client, message):
     file = getattr(message, message.media.value)
     filename = file.file_name  
