@@ -256,7 +256,7 @@ async def start(client, message):
                 else:
                     button = [[
                        
-                        InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                      
                     ]]
                 msg = await client.send_cached_media(
                     chat_id=message.from_user.id,
@@ -444,7 +444,7 @@ async def start(client, message):
             else:
                 button = [[
                     
-                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                  
                 ]]
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
@@ -512,7 +512,7 @@ async def start(client, message):
             else:
                 button = [[
                     
-                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                   
                 ]]
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
@@ -579,7 +579,7 @@ async def start(client, message):
     else:
         button = [[
            
-            InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+           
         ]]
     msg = await client.send_cached_media(
         chat_id=message.from_user.id,
