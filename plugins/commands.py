@@ -253,11 +253,7 @@ async def start(client, message):
                     ],[
                         InlineKeyboardButton("• ᴡᴀᴛᴄʜ ɪɴ ᴡᴇʙ ᴀᴘᴘ •", web_app=WebAppInfo(url=stream))
                     ]]
-                else:
-                    button = [[
-                       
-                      
-                    ]]
+                
                 msg = await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
@@ -441,11 +437,7 @@ async def start(client, message):
                 ],[
                     InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @KingVJ01
                 ]]
-            else:
-                button = [[
-                    
-                  
-                ]]
+            
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
@@ -509,11 +501,7 @@ async def start(client, message):
                 ],[
                     InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @KingVJ01
                 ]]
-            else:
-                button = [[
-                    
-                   
-                ]]
+            
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
@@ -576,11 +564,7 @@ async def start(client, message):
         ],[
             InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @KingVJ01
         ]]
-    else:
-        button = [[
-           
-           
-        ]]
+    
     msg = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
