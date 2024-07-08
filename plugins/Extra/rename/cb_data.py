@@ -21,14 +21,14 @@ client = Client("my_bot")
 logger = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-@Client.on_callback_query(filters.regex('cancel'))
+@client.on_callback_query(filters.regex('cancel'))
 async def cancel(bot, update):
     try:
         await update.message.delete()
     except Exception as e:
         logger.error(f"Error while deleting message: {e}")
 
-@Client.on_callback_query(filters.regex("upload"))
+@client.on_callback_query(filters.regex("upload"))
 async def doc(bot, update):
     try:
         type = update.data.split("_")[1]
@@ -138,6 +138,5 @@ async def doc(bot, update):
         logger.error(f"Error: {e}")
 
 # Start your Pyrogram Client
-client.run()
-
-		    
+if __name__ == "__main__":
+    client.run()
