@@ -17,7 +17,8 @@ from PIL import Image
 # Initialize your Pyrogram Client
 client = Client("my_bot")
 
-# Set up logging (optional)
+# Set up logging
+logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
@@ -31,12 +32,17 @@ async def cancel(bot, update):
 @client.on_message(filters.private & (filters.document | filters.audio | filters.video))
 async def handle_media(client, message):
     try:
+        logger.info(f"Received message: {message}")
+
         file = message.document or message.audio or message.video
         filename = file.file_name
         file_path = f"downloads/{filename}"
 
+        logger.info(f"File: {filename}, Size: {humanize.naturalsize(file.file_size)}")
+
         if file.file_size > 2000 * 1024 * 1024:
-            return await message.reply_text("Sorry, this bot does not support uploading files larger than 2GB.")
+            await message.reply_text("Sorry, this bot does not support uploading files larger than 2GB.")
+            return
 
         # Download the file
         ms = await message.reply_text("⚠️__**Please wait...**__\n\n__Downloading file to my server...__")
@@ -52,6 +58,8 @@ async def handle_media(client, message):
         except Exception as e:
             await ms.edit(f"Error downloading file: {e}")
             return
+
+        logger.info(f"File downloaded to: {path}")
 
         # Process metadata if available
         duration = 0
